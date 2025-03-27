@@ -1,7 +1,7 @@
-export default function CoreConcept({ img, title, desc }) {
+export default function CoreConcept({ image, title, desc }) {
   return (
     <li>
-      <img src={img} alt="" />
+      <img src={image} alt={title} />
       <h3>{title}</h3>
       <p>{desc}</p>
     </li>
