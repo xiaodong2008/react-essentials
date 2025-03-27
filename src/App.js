@@ -3,6 +3,7 @@ import componentImg from "./assets/components.png";
 import configImg from "./assets/config.png";
 import uiImg from "./assets/jsx-ui.png";
 
+import Header from "./components/Header";
 import CoreConcept from "./components/CoreConcept";
 
 const coreConcept_data = [
@@ -27,19 +28,6 @@ const coreConcept_data = [
     desc: "Learn how to create dynamic user interfaces using JSX.",
   },
 ];
-
-function Header() {
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        Fundamental React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  );
-}
 
 const welcome = "Hello!";
 
