@@ -28,16 +28,10 @@ function App() {
                   setActiveExample(key);
                   console.log(EXAMPLES[key].title, "clicked");
                 }}
+                isActive={activeExample == key}
                 key={index}
               >
-                <span
-                  style={{
-                    fontWeight: activeExample == key && 900,
-                    color: activeExample == key && "skyblue",
-                  }}
-                >
-                  {EXAMPLES[key].title}
-                </span>
+                <span>{EXAMPLES[key].title}</span>
               </TabButton>
             ))}
           </menu>
