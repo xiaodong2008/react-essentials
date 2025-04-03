@@ -42,7 +42,7 @@ function App() {
             ))}
           </menu>
           <div id="tab-content">
-            {(activeExample && EXAMPLES[activeExample]?.title) ||
+            {(activeExample && EXAMPLES[activeExample]?.description) ||
               "Please select a button"}
           </div>
         </section>
