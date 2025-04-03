@@ -1,3 +1,5 @@
+import reactImg from "../assets/components.png";
+
 export default function Header() {
   return (
     <header>
