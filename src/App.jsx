@@ -40,11 +40,11 @@ function App() {
                 </span>
               </TabButton>
             ))}
-            <p>
-              {(activeExample && EXAMPLES[activeExample]?.title) ||
-                "Please select a button"}
-            </p>
           </menu>
+          <div id="tab-content">
+            {(activeExample && EXAMPLES[activeExample]?.title) ||
+              "Please select a button"}
+          </div>
         </section>
       </main>
     </div>
