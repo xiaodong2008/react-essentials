@@ -36,9 +36,7 @@ function App() {
                     color: activeExample == index && "skyblue",
                   }}
                 >
-                  {activeExample == index
-                    ? EXAMPLES[key].title.toUpperCase()
-                    : EXAMPLES[key].title}
+                  {EXAMPLES[key].title}
                 </span>
               </TabButton>
             ))}
