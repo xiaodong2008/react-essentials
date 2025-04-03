@@ -42,8 +42,18 @@ function App() {
             ))}
           </menu>
           <div id="tab-content">
-            {(activeExample && EXAMPLES[activeExample]?.description) ||
-              "Please select a button"}
+            <h3>
+              {(activeExample && EXAMPLES[activeExample]?.title) ||
+                "Please select a button"}
+            </h3>
+            {activeExample && (
+              <div>
+                <p>{EXAMPLES[activeExample]?.description}</p>
+                <pre>
+                  <code>{EXAMPLES[activeExample]?.code}</code>
+                </pre>
+              </div>
+            )}
           </div>
         </section>
       </main>
