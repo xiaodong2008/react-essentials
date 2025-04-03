@@ -25,21 +25,25 @@ function App() {
             {Object.keys(EXAMPLES).map((key, index) => (
               <TabButton
                 handleClick={() => {
-                  setActiveExample(index);
-                  console.log(index, "clicked");
+                  setActiveExample(key);
+                  console.log(EXAMPLES[key].title, "clicked");
                 }}
                 key={index}
               >
                 <span
                   style={{
-                    fontWeight: activeExample == index && 900,
-                    color: activeExample == index && "skyblue",
+                    fontWeight: activeExample == key && 900,
+                    color: activeExample == key && "skyblue",
                   }}
                 >
                   {EXAMPLES[key].title}
                 </span>
               </TabButton>
             ))}
+            <p>
+              {(activeExample && EXAMPLES[activeExample]?.title) ||
+                "Please select a button"}
+            </p>
           </menu>
         </section>
       </main>
