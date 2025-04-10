@@ -7,7 +7,6 @@ function App() {
   const [count, setCount] = useState([0, 0]); // [X wins, O wins]
 
   const restartGame = {};
-  const updateCount = {};
 
   function handleWin(player) {
     setWinner(player);
