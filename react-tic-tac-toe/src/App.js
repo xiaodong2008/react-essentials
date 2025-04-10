@@ -32,8 +32,8 @@ function App() {
           id="win-count"
           style={{ display: "flex", justifyContent: "space-between" }}
         >
-          <span>Score: {count[0]}</span>
-          <span>Score: {count[1]}</span>
+          <b>Score: {count[0]}</b>
+          <b>Score: {count[1]}</b>
         </div>
         <Gameboard onGameOver={handleWin} restartGame={restartGame} />
         {winner !== undefined && (
