@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Gameboard from "./components/Gameboard";
 import Player from "./components/Player";
 
-const player = {
+const defaultPlayer = {
   X: "Player 1",
   O: "Player 2",
 }
@@ -11,8 +11,16 @@ function App() {
   const [winner, setWinner] = useState(undefined);
   const [count, setCount] = useState([0, 0]); // [X wins, O wins]
   const [nowTurn, setNowTurn] = useState("X");
+  const [player, setPlayer] = useState(defaultPlayer);
 
   const restartGame = {};
+
+  function updatePlayerName(symbol, name) {
+    setPlayer((prevPlayer) => ({
+      ...prevPlayer,
+      [symbol]: name,
+    }));
+  }
 
   function handleWin(player) {
     setWinner(player);
@@ -25,14 +33,15 @@ function App() {
       }
       return newCount;
     });
+    setNowTurn("X" === player ? "O" : "X");
   }
 
   return (
     <main>
       <div id="game-container">
         <ol id="players">
-          <Player name={player.X} symbol="X" updatePlayerName={name => player.X = name} />
-          <Player name={player.O} symbol="O" updatePlayerName={name => player.O = name} />
+          <Player name={player.X} symbol="X" updatePlayerName={name => updatePlayerName("X", name)} />
+          <Player name={player.O} symbol="O" updatePlayerName={name => updatePlayerName("O", name)} />
         </ol>
         <div
           id="win-count"
