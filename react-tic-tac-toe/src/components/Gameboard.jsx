@@ -3,9 +3,16 @@ import React, { useState } from "react";
 // Fix: Ensure each row is a separate array
 const initialBoard = Array.from({ length: 3 }, () => Array(3).fill(null));
 
-export default function Gameboard({ onGameOver }) {
+export default function Gameboard({ onGameOver, restartGame }) {
   const [board, setBoard] = useState(initialBoard);
   const [currentTurn, setCurrentTurn] = useState("X"); // Add currentTurn state
+
+
+  console.log(restartGame)
+  restartGame.func = () => {
+    setBoard(initialBoard);
+    setCurrentTurn("X");
+  };
 
   const checkWinner = (board) => {
     const winningCombinations = [
