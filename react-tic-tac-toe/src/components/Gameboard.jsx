@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 
-// Fix: Ensure each row is a separate array
 const initialBoard = Array.from({ length: 3 }, () => Array(3).fill(null));
 
 export default function Gameboard({ onGameOver, restartGame }) {
   const [board, setBoard] = useState(initialBoard);
-  const [currentTurn, setCurrentTurn] = useState("X"); // Add currentTurn state
+  const [currentTurn, setCurrentTurn] = useState("X");
 
-
-  console.log(restartGame)
   restartGame.func = () => {
     setBoard(initialBoard);
     setCurrentTurn("X");
@@ -50,7 +47,7 @@ export default function Gameboard({ onGameOver, restartGame }) {
               <li key={cellIndex}>
                 <button
                   onClick={() => {
-                    if (board[rowIndex][cellIndex]) return; // Prevent overwriting moves
+                    if (board[rowIndex][cellIndex]) return;
 
                     const newBoard = board.map((r, rIndex) =>
                       rIndex === rowIndex
@@ -67,7 +64,7 @@ export default function Gameboard({ onGameOver, restartGame }) {
                     } else if (newBoard.flat().every((cell) => cell)) {
                       onGameOver(null);
                     } else {
-                      setCurrentTurn(currentTurn === "X" ? "O" : "X"); // Switch turn
+                      setCurrentTurn(currentTurn === "X" ? "O" : "X");
                     }
                   }}
                 >
