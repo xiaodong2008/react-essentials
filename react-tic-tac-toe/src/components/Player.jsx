@@ -15,10 +15,10 @@ export default function Player({ name, symbol }) {
           />
         ) : (
           <span className="player-name">{playerName}</span>
-        )} 
+        )}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={() => setIsEditing(v => !v)}>{isEditing ? "Save" : "Edit"}</button>
+      <button onClick={() => setIsEditing(!isEditing)}>{isEditing ? "Save" : "Edit"}</button>
     </li>
   );
 }
