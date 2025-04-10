@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const initialBoard = Array.from({ length: 3 }, () => Array(3).fill(null));
 
-export default function Gameboard({ onGameOver, restartGame }) {
+export default function Gameboard({ onGameOver, restartGame, setNowTurn }) {
   const [board, setBoard] = useState(initialBoard);
   const [currentTurn, setCurrentTurn] = useState("X");
 
@@ -65,6 +65,7 @@ export default function Gameboard({ onGameOver, restartGame }) {
                       onGameOver(null);
                     } else {
                       setCurrentTurn(currentTurn === "X" ? "O" : "X");
+                      setNowTurn(currentTurn === "X" ? "O" : "X");
                     }
                   }}
                 >
