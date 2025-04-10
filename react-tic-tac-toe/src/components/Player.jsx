@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Player({ name, symbol }) {
+export default function Player({ name, symbol, updatePlayerName }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(name);
 
@@ -11,7 +11,7 @@ export default function Player({ name, symbol }) {
           <input
             type="text"
             value={playerName}
-            onChange={(e) => setPlayerName(e.target.value)}
+            onChange={(e) => [setPlayerName(e.target.value), updatePlayerName(e.target.value)]}
           />
         ) : (
           <span className="player-name">{playerName}</span>

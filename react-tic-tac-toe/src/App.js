@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import Gameboard from "./components/Gameboard";
 import Player from "./components/Player";
 
+const player = {
+  X: "Player 1",
+  O: "Player 2",
+}
+
 function App() {
   const [winner, setWinner] = useState(undefined);
   const [count, setCount] = useState([0, 0]); // [X wins, O wins]
@@ -26,21 +31,21 @@ function App() {
     <main>
       <div id="game-container">
         <ol id="players">
-          <Player name="Player 1" symbol="X" />
-          <Player name="Player 2" symbol="O" />
+          <Player name={player.X} symbol="X" updatePlayerName={name => player.X = name} />
+          <Player name={player.O} symbol="O" updatePlayerName={name => player.O = name} />
         </ol>
         <div
           id="win-count"
           style={{ display: "flex", justifyContent: "space-between" }}
         >
           <b>Score: {count[0]}</b>
-          <b>Now Turn: {nowTurn}</b>
+          <b>Now Turn: {player[nowTurn]} ({nowTurn})</b>
           <b>Score: {count[1]}</b>
         </div>
         <Gameboard onGameOver={handleWin} setNowTurn={setNowTurn} restartGame={restartGame} />
         {winner !== undefined && (
           <div id="game-over">
-            {winner ? <p>{`Winner: ${winner}`}</p> : <p>It's a draw!</p>}
+            {winner ? <p>{`Winner: ${player[winner]}`}</p> : <p>It's a draw!</p>}
             <button
               onClick={() => {
                 restartGame.func();
